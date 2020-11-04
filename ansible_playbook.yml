@@ -1,0 +1,16 @@
+---
+
+- hosts: all
+  remote_user: root
+  vars_files:
+    - "var.yml"
+  tasks:
+
+    - name: install firewalld
+      yum: name=firewalld state=present
+  
+    - name: restart firewalld
+      service: name=firewalld state=restarted enabled=yes
+
+
+
